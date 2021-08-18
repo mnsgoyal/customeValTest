@@ -1,0 +1,36 @@
+//the client part
+package main
+
+import (
+	"context"
+	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated/test_server"
+	"google.golang.org/grpc"
+	"log"
+	"time"
+)
+
+const (
+	address     = "localhost:50051"
+)
+
+func main() {
+	// Set up a connection to the server.
+	conn, err := grpc.Dial(address, grpc.WithInsecure())
+	if err != nil {
+		log.Fatalf("did not connect: %v", err)
+	}
+	defer conn.Close()
+	c := pb.NewSearchServiceClient(conn)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+	r, err := c.Search(ctx, &pb.SearchRequest{Query: "Protocol Buffer",EmailId: "alex.testgmail.com"})
+	if err != nil {
+		log.Fatalf("could not execute search: %v", err)
+	}
+	//Lets validate the respose
+	res := r.Validate()
+	if res != nil {
+		log.Fatalf("Response validation failed: %v", err)
+	}
+	log.Printf("Greeting: %s", r.SearchResponse)
+}
