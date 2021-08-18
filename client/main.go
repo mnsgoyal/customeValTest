@@ -23,7 +23,7 @@ func main() {
 	c := pb.NewSearchServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Search(ctx, &pb.SearchRequest{Query: "Protocol Buffer",EmailId: "alex.testgmail.com"})
+	r, err := c.Search(ctx, &pb.SearchRequest{Query: "Protocol Buffer",EmailId: "alex.test@gmail.com",name: "maanasa" })
 	if err != nil {
 		log.Fatalf("could not execute search: %v", err)
 	}
