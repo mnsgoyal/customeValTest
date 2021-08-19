@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/envoyproxy/protoc-gen-validate v0.1.0
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/maanasasubrahmanyam-sd/customValidation v0.0.0-20210817213416-5eb0b8804c6f // indirect
