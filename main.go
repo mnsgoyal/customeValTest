@@ -11,7 +11,6 @@ import (
 
 // server is used to implement the server
 
-
 const (
 	port = ":50051"
 )

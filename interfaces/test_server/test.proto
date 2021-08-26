@@ -1,15 +1,14 @@
 syntax = "proto3";
-option go_package = "./test_server";
+option go_package = "github.com/arkadyb/go-proto-validators;validator";
 
 import "validate/validate.proto";
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+//import "github.com/arkadyb/go-proto-validators/validator.proto";
 
-
-//import "github.com/maanasasubrahmanyam-sd/customValidation/validators.proto";
+import "github.com/maanasasubrahmanyam-sd/customValidation/validator.proto";
 
 //protoc   -I ./interfaces/  -I ${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0  --go_out="plugins=grpc:./generated"    --validate_out="lang=go:./generated" ./interfaces/test_server/*.proto
 //protoc  --proto_path=${GOPATH}/src --proto_path=${GOPATH}/pkg/mod/github.com/gogo/protobuf@v1.3.2 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 --proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd --proto_path=${GOPATH}/src/github.com/maanasasubrahmanyam-sd/customeValTest/interfaces/test_server  --validate_out="lang=go:./generated" --govalidators_out=gogoimport=true:. C:/Users/Rohit/go/src/github.com/maanasasubrahmanyam-sd/customeValTest/interfaces/test_server/test.proto
-
+//protoc   -I ./interfaces/  -I ${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 -I ${GOPATH}/src -I $GOPATH/src/github.com/google/protobuf/src/ --govalidators_out=./generated --go_out="plugins=grpc:./generated" --validate_out="lang=go:./generated"  --proto_path=C:/Users/Rohit/go/src/github.com/maanasasubrahmanyam-sd/customeValTest/interfaces/test_server/test.proto ./interfaces/test_server/*.proto
 message SearchRequest {
   string query = 1 [(validate.rules).string = {
                       pattern:   "([A-Za-z]+) ([A-Za-z]+)*$",
@@ -17,10 +16,8 @@ message SearchRequest {
                    }];
   string email_id= 2 [(validate.rules).string.email = true];
   string name = 3 [(validate.rules).string.email = true];
-  //  google.protobuf.Timestamp when = 1 [(validator.field) = {future_timestamp: true}];
-  //string customRegex = 4 [(validator.field)={customRegex:"maanasa"}];
-  string length = 4 [(gogoproto.moretags) = "validate:\"min=8\""];
-  int32 result_per_page = 5;  // Number of results to return per page.
+  string important_string = 4 [(validator.field) = {regex: true}];
+
 }
 
 /** SearchResponse represents the response of the Search
@@ -28,7 +25,7 @@ message SearchRequest {
 message SearchResponse{
     string search_response = 1; // the search response
     int32 page_number = 2; // the page number
-    int32 total_pages = 3; //total number of pages 
+    int32 total_pages = 3; //total number of pages
 
 }
 

@@ -9,12 +9,14 @@ import (
 	"time"
 )
 
+type Server struct{}
+
 const (
 	address     = "localhost:50051"
 )
 //protoc   -I ./interfaces/  -I ${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 -I ${GOPATH}/src --go_out="plugins=grpc:./generated" --validate_out="lang=go:./generated"  --proto_path=C:/Users/Rohit/go/src/github.com/maanasasubrahmanyam-sd/customeValTest/interfaces/test_server/test.proto ./interfaces/test_server/*.proto
 func main() {
-	// Set up a connection to the server.
+	// Set up a connection to the server
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
@@ -23,7 +25,7 @@ func main() {
 	c := pb.NewSearchServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Search(ctx, &pb.SearchRequest{Query: "Protocol Buffer",EmailId: "alex.test@gmail.com",Name: "maanasa@gmail.com" })
+	r, err := c.Search(ctx, &pb.SearchRequest{Query: "Protocol Buffer",EmailId: "alex.test@gmail.com",Name: "maanasa@gmail.com" , ImportantString : "welcome"})
 	if err != nil {
 		log.Fatalf("could not execute search: %v", err)
 	}
@@ -32,5 +34,8 @@ func main() {
 	if res != nil {
 		log.Fatalf("Response validation failed: %v", err)
 	}
+
+	//v, err := grpc_playground_validator.NewValidator()
+
 	log.Printf("Greeting: %s", r.SearchResponse)
 }
