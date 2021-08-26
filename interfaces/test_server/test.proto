@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/arkadyb/go-proto-validators;validator";
+option go_package = "./generated";
 
 import "validate/validate.proto";
 //import "github.com/arkadyb/go-proto-validators/validator.proto";
@@ -16,8 +16,7 @@ message SearchRequest {
                    }];
   string email_id= 2 [(validate.rules).string.email = true];
   string name = 3 [(validate.rules).string.email = true];
-  string important_string = 4 [(validator.field) = {regex: true}];
-
+  string important_string = 4 [(validator.field) = {alpha: true}];
 }
 
 /** SearchResponse represents the response of the Search
