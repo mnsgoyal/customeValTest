@@ -4,7 +4,8 @@ option go_package = "./generated";
 import "validate/validate.proto";
 //import "github.com/arkadyb/go-proto-validators/validator.proto";
 
-import "github.com/maanasasubrahmanyam-sd/customValidation/validator.proto";
+import "github.com/maanasasubrahmanyam-sd/go-proto-validators/validator.proto";
+
 
 //protoc   -I ./interfaces/  -I ${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0  --go_out="plugins=grpc:./generated"    --validate_out="lang=go:./generated" ./interfaces/test_server/*.proto
 //protoc  --proto_path=${GOPATH}/src --proto_path=${GOPATH}/pkg/mod/github.com/gogo/protobuf@v1.3.2 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 --proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd --proto_path=${GOPATH}/src/github.com/maanasasubrahmanyam-sd/customeValTest/interfaces/test_server  --validate_out="lang=go:./generated" --govalidators_out=gogoimport=true:. C:/Users/Rohit/go/src/github.com/maanasasubrahmanyam-sd/customeValTest/interfaces/test_server/test.proto
@@ -16,7 +17,7 @@ message SearchRequest {
                    }];
   string email_id= 2 [(validate.rules).string.email = true];
   string name = 3 [(validate.rules).string.email = true];
-  string important_string = 4 [(validator.field) = {alpha: true}];
+  string id = 4 [(validator.field) = {alpha: true}];
 }
 
 /** SearchResponse represents the response of the Search

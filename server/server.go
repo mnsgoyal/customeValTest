@@ -2,7 +2,7 @@ package server
 
 import (
 	"context"
-	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated/test_server"
+	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated/generated"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -12,8 +12,7 @@ type Server struct{}
 func (s *Server)Search(ctx context.Context, in *pb.SearchRequest) (*pb.SearchResponse, error){
 	log.Printf("Received Emailid: %v", in.EmailId)
 	log.Printf("Received Query: %v", in.Query)
-	log.Printf("Received length: %v", in.ImportantString)
-	
+
 	// Note this is the only place we use validate
 	err := in.Validate()
 	if err != nil {
