@@ -4,7 +4,7 @@ option go_package = "./generated";
 import "validate/validate.proto";
 //import "github.com/arkadyb/go-proto-validators/validator.proto";
 
-import "github.com/maanasasubrahmanyam-sd/go-proto-validators/validator.proto";
+//import "github.com/maanasasubrahmanyam-sd/go-proto-validators/validator.proto";
 
 
 //protoc   -I ./interfaces/  -I ${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0  --go_out="plugins=grpc:./generated"    --validate_out="lang=go:./generated" ./interfaces/test_server/*.proto
@@ -17,7 +17,7 @@ message SearchRequest {
                    }];
   string email_id= 2 [(validate.rules).string.email = true];
   string name = 3 [(validate.rules).string.email = true];
-  string id = 4 [(validator.field) = {alpha: true}];
+  //string id = 4 [(validator.field) = {alpha: true}];
 }
 
 /** SearchResponse represents the response of the Search
