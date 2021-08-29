@@ -71,6 +71,8 @@ func (m *SearchRequest) Validate() error {
 		}
 	}
 
+	// no validation rules for UserId
+
 	return nil
 }
 

@@ -1,3 +1,6 @@
+
+
+
 protoc  \
 -I. \
 -I $GOPATH/src/ \
@@ -29,3 +32,11 @@ protoc  \
 --validate_out="lang=go:." \
 --govalidators_out=. \
 ./interfaces/test_server/test.proto
+
+
+working command
+$ protoc   --proto_path=./interfaces/   --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0   --proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-validators@v0.3.2   --go_out="plugins=grpc:./generated"   --validate_out="lang=go:./generated"   ./interfaces/test_server/*.proto
+
+This is gem
+Rohit@Rohit MINGW64 ~/go/src/github.com/maanasasubrahmanyam-sd/customeValTest (master)
+$  protoc   --proto_path=./interfaces/   --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0   --proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-validators@v0.3.7   --go_out="plugins=grpc:./generated"   --validate_out="lang=go:./generated" --go_opt=Mvalidator.proto=github.com/maanasasubrahmanyam-sd/go-proto-validators    ./interfaces/test_server/*.proto
