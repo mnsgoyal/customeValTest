@@ -3,7 +3,7 @@ package main
 
 import (
 	"context"
-	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated/generated"
+	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated"
 	"google.golang.org/grpc"
 	"log"
 	"time"
@@ -25,7 +25,7 @@ func main() {
 	c := pb.NewSearchServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Search(ctx, &pb.SearchRequest{Query: "Protocol Buffer",EmailId: "alex.test@gmail.com",Name: "maanasa@gmail.com", UserId : "4"})
+	r, err := c.Search(ctx, &pb.SearchRequest{Query: "Protocol Buffer",EmailId: "alex.test@gmail.com",Name: "maanasa@gmail.com", Id : "hello"})
 	if err != nil {
 		log.Fatalf("could not execute search: %v", err)
 	}

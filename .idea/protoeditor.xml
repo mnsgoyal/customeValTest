@@ -12,6 +12,6 @@
         </ImportPathEntry>
       </list>
     </option>
-    <option name="descriptorPath" value="google/protobuf/descriptor.proto" />
+    <option name="descriptorPath" value="validator.proto" />
   </component>
 </project>

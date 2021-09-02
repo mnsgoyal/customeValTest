@@ -51,14 +51,16 @@ $ protoc \
 > --govalidators_out=./generated \
 > ./interfaces/test_server/*.proto
 
+
+go get github.com/maanasasubrahmanyam-sd/go-proto-validators/protoc-gen-govalidators
 For my
 protoc \
 -I. \
 -I $GOPATH/src/ \
 -I $GOPATH/src/github.com/google/protobuf/src/ \
 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
---proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-validators@v0.3.7 \
---go_out=plugins=grpc:./generated \
+--proto_path=${GOPATH}/src/github.com/maanasasubrahmanyam-sd/go-proto-validators \
+--go_out=plugins=grpc:./ \
 --go_opt=Mvalidator.proto=github.com/maanasasubrahmanyam-sd/go-proto-validators \
---govalidators_out=./generated \
+--govalidators_out=./ \
 ./interfaces/test_server/*.proto
