@@ -5,11 +5,11 @@ package generated
 
 import (
 	fmt "fmt"
-	math "math"
-	proto "github.com/golang/protobuf/proto"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
-	regexp "regexp"
+	proto "github.com/gogo/protobuf/proto"
 	github_com_maanasasubrahmanyam_sd_go_proto_validators "github.com/maanasasubrahmanyam-sd/go-proto-validators"
+	math "math"
+	regexp "regexp"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -18,10 +18,14 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 var _regex_SearchRequest_Id = regexp.MustCompile(`^[a-zA-Z]+$`)
+var _regex_SearchRequest_Number = regexp.MustCompile(`^[a-zA-Z0-9]+$`)
 
 func (this *SearchRequest) Validate() error {
 	if !_regex_SearchRequest_Id.MatchString(this.Id) {
-		return github_com_maanasasubrahmanyam_sd_go_proto_validators.FieldError("Id", fmt.Errorf(`value '%v' must be a string conforming to regex ""`, this.Id))
+		return github_com_maanasasubrahmanyam_sd_go_proto_validators.FieldError("Id", fmt.Errorf(`be a string conforming to alpha regex "^[a-zA-Z]+$"`))
+	}
+	if !_regex_SearchRequest_Number.MatchString(this.Number) {
+		return github_com_maanasasubrahmanyam_sd_go_proto_validators.FieldError("Number", fmt.Errorf(`be a string conforming to default regex "^[a-zA-Z0-9]+$"`))
 	}
 	return nil
 }

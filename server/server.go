@@ -13,6 +13,7 @@ func (s *Server)Search(ctx context.Context, in *pb.SearchRequest) (*pb.SearchRes
 	log.Printf("Received Emailid: %v", in.EmailId)
 	log.Printf("Received Query: %v", in.Query)
 	log.Printf("Received id: %v", in.Id)
+	log.Printf("Received number: %v", in.Number)
 
 	// Note this is the only place we use validate
 	err := in.Validate()

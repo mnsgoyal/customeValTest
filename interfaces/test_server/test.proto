@@ -17,8 +17,8 @@ message SearchRequest {
                    }];
   string email_id= 2 [(validate.rules).string.email = true];
   string name = 3 [(validate.rules).string.email = true];
-  string id = 4 [(validator.field) = {alpha: "hello"}];
-  //string important_string = 5 [(validator.field) = {regex: "^[a-z]{2,5}$"}];
+  string id = 4 [(validator.field) = {alpha: true}];
+  string number = 5 [(validator.field) = {alpha: false}];
 
 }
 

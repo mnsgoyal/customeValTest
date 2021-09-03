@@ -61,6 +61,5 @@ protoc \
 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
 --proto_path=${GOPATH}/src/github.com/maanasasubrahmanyam-sd/go-proto-validators \
 --go_out=plugins=grpc:./ \
---go_opt=Mvalidator.proto=github.com/maanasasubrahmanyam-sd/go-proto-validators \
 --govalidators_out=./ \
 ./interfaces/test_server/*.proto
