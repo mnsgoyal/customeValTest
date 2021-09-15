@@ -53,13 +53,50 @@ $ protoc \
 
 
 go get github.com/maanasasubrahmanyam-sd/go-proto-validators/protoc-gen-govalidators
+
+go get github.com/maanasasubrahmanyam-sd/test/protoc-gen-govalidators
+
 For my
 protoc \
 -I. \
 -I $GOPATH/src/ \
 -I $GOPATH/src/github.com/google/protobuf/src/ \
 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
---proto_path=${GOPATH}/src/github.com/maanasasubrahmanyam-sd/go-proto-validators \
+--proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-validators@v1.4.1 \
 --go_out=plugins=grpc:./ \
+--govalidators_out=./ \
+./interfaces/test_server/*.proto
+
+protoc \
+-I. \
+-I $GOPATH/src/ \
+-I $GOPATH/src/github.com/google/protobuf/src/ \
+--proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
+--proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/test@v0.0.9 \
+--go_out=plugins=grpc:./ \
+--govalidators_out=./ \
+./interfaces/test_server/*.proto
+
+----------------------------------------------------------------------------------------
+go get github.com/maanasasubrahmanyam-sd/go-proto-validators/protoc-gen-govalidators1
+
+protoc \
+-I. \
+-I $GOPATH/src/ \
+-I $GOPATH/src/github.com/google/protobuf/src/ \
+--proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
+--proto_path=${GOPATH}/src/github.com/maanasasubrahmanyam-sd/go-proto-validators1 \
+--go_out=plugins=grpc:./ \
+--govalidators_out=./ \
+./interfaces/test_server/*.proto
+
+with latest version
+protoc \
+-I. \
+-I $GOPATH/src/ \
+-I $GOPATH/pkg/mod/github.com/protocolbuffers/protobuf@v3.17.3+incompatible/src/ \
+--proto_path=$GOPATH/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
+--proto_path=$GOPATH/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-valiadators1@v0.0.0-20210914164940-4b15a3dbf816 \
+--go-grpc_out=./ \
 --govalidators_out=./ \
 ./interfaces/test_server/*.proto

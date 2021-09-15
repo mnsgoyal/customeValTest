@@ -5,11 +5,10 @@ package generated
 
 import (
 	fmt "fmt"
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
-	proto "github.com/gogo/protobuf/proto"
-	github_com_maanasasubrahmanyam_sd_go_proto_validators "github.com/maanasasubrahmanyam-sd/go-proto-validators"
 	math "math"
-	regexp "regexp"
+	proto "github.com/gogo/protobuf/proto"
+	_ "github.com/envoyproxy/protoc-gen-validate/validate"
+	_ "github.com/maanasasubrahmanyam-sd/go-proto-validators"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -17,16 +16,7 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-var _regex_SearchRequest_Id = regexp.MustCompile(`^[a-zA-Z]+$`)
-var _regex_SearchRequest_Number = regexp.MustCompile(`^[a-zA-Z0-9]+$`)
-
 func (this *SearchRequest) Validate() error {
-	if !_regex_SearchRequest_Id.MatchString(this.Id) {
-		return github_com_maanasasubrahmanyam_sd_go_proto_validators.FieldError("Id", fmt.Errorf(`be a string conforming to alpha regex "^[a-zA-Z]+$"`))
-	}
-	if !_regex_SearchRequest_Number.MatchString(this.Number) {
-		return github_com_maanasasubrahmanyam_sd_go_proto_validators.FieldError("Number", fmt.Errorf(`be a string conforming to default regex "^[a-zA-Z0-9]+$"`))
-	}
 	return nil
 }
 func (this *SearchResponse) Validate() error {
