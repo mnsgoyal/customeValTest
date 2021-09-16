@@ -8,7 +8,7 @@ import (
 	math "math"
 	proto "github.com/gogo/protobuf/proto"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
-	_ "github.com/maanasasubrahmanyam-sd/go-proto-validators"
+	_ "github.com/mnsgoyal/go-proto-validators"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

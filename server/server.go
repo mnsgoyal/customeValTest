@@ -2,7 +2,7 @@ package server
 
 import (
 	"context"
-	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated"
+	pb "github.com/mnsgoyal/customeValTest/generated"
 	log "github.com/sirupsen/logrus"
 )
 

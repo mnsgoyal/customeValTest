@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated"
-	server "github.com/maanasasubrahmanyam-sd/customeValTest/server"
+	pb "github.com/mnsgoyal/customeValTest/generated"
+	server "github.com/mnsgoyal/customeValTest/server"
 	"google.golang.org/grpc"
 	"log"
 	"net"

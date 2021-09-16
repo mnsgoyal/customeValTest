@@ -9,7 +9,7 @@ package generated
 import (
 	context "context"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
-	_ "github.com/maanasasubrahmanyam-sd/go-proto-validators"
+	_ "github.com/mnsgoyal/go-proto-validators"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

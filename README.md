@@ -35,11 +35,11 @@ protoc  \
 
 
 working command
-$ protoc   --proto_path=./interfaces/   --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0   --proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-validators@v0.3.2   --go_out="plugins=grpc:./generated"   --validate_out="lang=go:./generated"   ./interfaces/test_server/*.proto
+$ protoc   --proto_path=./interfaces/   --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0   --proto_path=${GOPATH}/pkg/mod/github.com/mnsgoyal/go-proto-validators@v0.3.2   --go_out="plugins=grpc:./generated"   --validate_out="lang=go:./generated"   ./interfaces/test_server/*.proto
 
 This is gem
-Rohit@Rohit MINGW64 ~/go/src/github.com/maanasasubrahmanyam-sd/customeValTest (master)
-$  protoc   --proto_path=./interfaces/   --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0   --proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-validators@v0.3.7   --go_out="plugins=grpc:./generated"   --validate_out="lang=go:./generated" --go_opt=Mvalidator.proto=github.com/maanasasubrahmanyam-sd/go-proto-validators    ./interfaces/test_server/*.proto
+Rohit@Rohit MINGW64 ~/go/src/github.com/mnsgoyal/customeValTest (master)
+$  protoc   --proto_path=./interfaces/   --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0   --proto_path=${GOPATH}/pkg/mod/github.com/mnsgoyal/go-proto-validators@v0.3.7   --go_out="plugins=grpc:./generated"   --validate_out="lang=go:./generated" --go_opt=Mvalidator.proto=github.com/mnsgoyal/go-proto-validators    ./interfaces/test_server/*.proto
 
 for miwitkow
 $ protoc \
@@ -52,9 +52,9 @@ $ protoc \
 > ./interfaces/test_server/*.proto
 
 
-go get github.com/maanasasubrahmanyam-sd/go-proto-validators/protoc-gen-govalidators
+go get github.com/mnsgoyal/go-proto-validators/protoc-gen-govalidators
 
-go get github.com/maanasasubrahmanyam-sd/test/protoc-gen-govalidators
+go get github.com/mnsgoyal/test/protoc-gen-govalidators
 
 For my
 protoc \
@@ -62,7 +62,7 @@ protoc \
 -I $GOPATH/src/ \
 -I $GOPATH/src/github.com/google/protobuf/src/ \
 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
---proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-validators@v1.4.1 \
+--proto_path=${GOPATH}/pkg/mod/github.com/mnsgoyal/go-proto-validators@v1.4.1 \
 --go_out=plugins=grpc:./ \
 --govalidators_out=./ \
 ./interfaces/test_server/*.proto
@@ -72,20 +72,20 @@ protoc \
 -I $GOPATH/src/ \
 -I $GOPATH/src/github.com/google/protobuf/src/ \
 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
---proto_path=${GOPATH}/pkg/mod/github.com/maanasasubrahmanyam-sd/test@v0.0.9 \
+--proto_path=${GOPATH}/pkg/mod/github.com/mnsgoyal/test@v0.0.9 \
 --go_out=plugins=grpc:./ \
 --govalidators_out=./ \
 ./interfaces/test_server/*.proto
 
 ----------------------------------------------------------------------------------------
-go get github.com/maanasasubrahmanyam-sd/go-proto-validators/protoc-gen-govalidators1
+go get github.com/mnsgoyal/go-proto-validators/protoc-gen-govalidators1
 
 protoc \
 -I. \
 -I $GOPATH/src/ \
 -I $GOPATH/src/github.com/google/protobuf/src/ \
 --proto_path=${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
---proto_path=${GOPATH}/src/github.com/maanasasubrahmanyam-sd/go-proto-validators1 \
+--proto_path=${GOPATH}/src/github.com/mnsgoyal/go-proto-validators1 \
 --go_out=plugins=grpc:./ \
 --govalidators_out=./ \
 ./interfaces/test_server/*.proto
@@ -96,7 +96,7 @@ protoc \
 -I $GOPATH/src/ \
 -I $GOPATH/pkg/mod/github.com/protocolbuffers/protobuf@v3.17.3+incompatible/src/ \
 --proto_path=$GOPATH/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
---proto_path=$GOPATH/pkg/mod/github.com/maanasasubrahmanyam-sd/go-proto-valiadators1@v0.0.0-20210914164940-4b15a3dbf816 \
+--proto_path=$GOPATH/pkg/mod/github.com/mnsgoyal/go-proto-valiadators1@v0.0.0-20210914164940-4b15a3dbf816 \
 --go-grpc_out=./ \
 --govalidators_out=./ \
 ./interfaces/test_server/*.proto

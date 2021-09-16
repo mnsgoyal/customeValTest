@@ -3,7 +3,7 @@ package main
 
 import (
 	"context"
-	pb "github.com/maanasasubrahmanyam-sd/customeValTest/generated"
+	pb "github.com/mnsgoyal/customeValTest/generated"
 	"google.golang.org/grpc"
 	"log"
 	"time"
@@ -14,7 +14,7 @@ type Server struct{}
 const (
 	address     = "localhost:50051"
 )
-//protoc   -I ./interfaces/  -I ${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 -I ${GOPATH}/src --go_out="plugins=grpc:./generated" --validate_out="lang=go:./generated"  --proto_path=C:/Users/Rohit/go/src/github.com/maanasasubrahmanyam-sd/customeValTest/interfaces/test_server/test.proto ./interfaces/test_server/*.proto
+//protoc   -I ./interfaces/  -I ${GOPATH}/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 -I ${GOPATH}/src --go_out="plugins=grpc:./generated" --validate_out="lang=go:./generated"  --proto_path=C:/Users/Rohit/go/src/github.com/mnsgoyal/customeValTest/interfaces/test_server/test.proto ./interfaces/test_server/*.proto
 func main() {
 	// Set up a connection to the server
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
